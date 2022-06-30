@@ -1,0 +1,15 @@
+.header{
+    background-image: url(./assets/alfons-morales-YLSwjSy7stw-unsplash.jpg);
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    text-align: center;
+}
+body{
+    background-image: url(./assets/keith-misner-h0Vxgz5tyXA-unsplash.jpg);
+    background-size: cover;
+    background-repeat: repeat;
+}
+.h1{
+
+}
