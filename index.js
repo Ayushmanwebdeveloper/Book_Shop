@@ -36,7 +36,7 @@ let arr=[{
     {
         "author": "David Herman",
         "imageLink": "add image to your project,put link to it there",
-        "title": "Effective JavaScript: 68 Specific Ways to Harness the Power of JavaScript",
+        "title": "Effective JavaScript: 68 Specific Ways to..",
         "price": 22,
         "description": "Effective JavaScript is organized around 68 proven approaches for writing better JavaScript, backed by concrete examples. You’ll learn how to choose the right programming style for each project, manage unanticipated problems, and work more successfully with every facet of JavaScript programming from data structures to concurrency"
     },
@@ -97,7 +97,6 @@ let arr=[{
         "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
     }
 ];
-
 arr.forEach(e => {
     let card = document.createElement("div");
     card.className = "card";
@@ -105,7 +104,7 @@ arr.forEach(e => {
       <div class="card__info">
         <h4 class="card__title">${e.title}</h4>
         <p class="card__text">${e.author}</p>
-        <p class="card__price">${e.price}</p>
+        <p class="card__price">Price:${'$'+e.price}</p>
         <button class="card__btn add-to-cart" data-id="6">Add to Cart</button>
       </div>`
     div2.appendChild(card);

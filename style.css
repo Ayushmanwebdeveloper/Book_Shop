@@ -93,8 +93,9 @@ top: 13px;
     transition: all 0.3s;
     background-color: #fff;
     width: 250px;
-
     margin-bottom: 12px;
+    border-radius: 6px;
+    height: fit-content;
 }
 
 .card:hover,
@@ -130,6 +131,7 @@ top: 13px;
     background-color: #ea332a;
     border: 1px solid #b61a12;
     color: #fff;
+    margin-bottom: 10px;
 }
 
 .card__btn:hover,
