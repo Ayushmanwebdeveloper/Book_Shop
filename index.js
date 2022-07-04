@@ -16,8 +16,31 @@ div1.appendChild(button1);
 let buttoncart = document.createElement("button");
 buttoncart.innerHTML = `<i class="fa-solid fa-shopping-cart fa-xl"></i>`;
 buttoncart.className = "buttoncart";
-buttoncart.id="cartbutton";
+buttoncart.id ="toggle-cart-btn";
 body.appendChild(buttoncart);
+let cart = document.createElement("div");
+cart.className = "header__cart";
+cart.innerHTML = `<ul>
+        <li class="header__submenu" id="submenu">
+         <div id="shopping-cart" class="shopping-cart-container">
+            <table id="cart-content">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <p class="total-container" id="total-price"></p>
+            <a href="#" id="checkout-btn" class="cart-btn">Checkout</a>
+            <a href="#" id="clear-cart" class="cart-btn">Clear Cart</a>
+          </div>
+        </li>
+      </ul>`;
+Header.appendChild(cart);
 let heading1 = document.createElement("h1");
 heading1.innerHTML = "Book Catalog";
 heading1.className = "h1";
@@ -97,16 +120,31 @@ let arr=[{
         "description": "Secrets of the Javascript Ninja takes you on a journey towards mastering modern JavaScript development in three phases: design, construction, and maintenance. Written for JavaScript developers with intermediate-level skills, this book will give you the knowledge you need to create a cross-browser JavaScript library from the ground up."
     }
 ];
+let count=0;
 arr.forEach(e => {
     let card = document.createElement("div");
     card.className = "card";
-    card.innerHTML = `<img src="./img/image-1.jpg" class="card__image" alt="">
+    card.innerHTML = `<img src="./assets/book.jpg" class="card__image" alt="">
       <div class="card__info">
         <h4 class="card__title">${e.title}</h4>
         <p class="card__text">${e.author}</p>
         <p class="card__price">Price:${'$'+e.price}</p>
-        <button class="card__btn add-to-cart" data-id="6">Add to Cart</button>
+        <button class="card__btn add-to-cart" data-id=${count++}>Add to Cart</button>
       </div>`
     div2.appendChild(card);
-console.log(e.price);
+console.log(count);
+});
+const productsContainer = document.querySelector("#grid");
+const cartContainer = document.querySelector("#shopping-cart");
+const cartContent = document.querySelector("#cart-content");
+const toggleCartBtn = document.querySelector("#toggle-cart-btn");
+const clearCartBtn = document.querySelector("#clear-cart");
+const checkoutBtn = document.querySelector("#checkout-btn");
+const totalPriceContainer = document.querySelector("#total-price");
+function toggleCart() {
+ cartContainer.classList.toggle("open");
+}
+toggleCartBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  toggleCart();
 });
