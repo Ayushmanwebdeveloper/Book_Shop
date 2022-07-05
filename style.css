@@ -196,8 +196,10 @@ top: 13px;
 }
 
 .shopping-cart-container {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     min-width: 300px;
+    font-weight: bold;
 }
 
 .shopping-cart-container table {
