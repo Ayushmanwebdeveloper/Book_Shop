@@ -27,8 +27,8 @@
                             <input onchange = "return(validateHouse());" type="text" id="house" name="housenumber" placeholder="530" required>
                             <label for="flat"><i class="fa fa-institution"></i>Flat Number</label>
                             <input onchange = "return(validateFlat());" type="text" id="flat" name="flatnumber" placeholder="4-1230" required>
-                            <label for="city"><i class="fa fa-institution"></i>Date Of Delivery</label>
-                            <input type="date" id="datedelivery" name="datedelivery" required>
+                            <label for="DOD"><i class="fa fa-calendar"></i>Date Of Delivery</label>
+                            <input onchange = "return(validateDOD());" type="date" id="DOD" name="datedelivery" required>
                         </div>
 
                         <div class="col-50">
@@ -40,10 +40,6 @@
                             </div><div><label for="gname">Cash</label>
                             <input type="radio" value="Cash" id="gname" name="cardname" placeholder="John More Doe">
                             </div></div>
-                            <label for="cname">Coupon Code</label>
-                            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-                            <label for="ccnum">Gift Message(if applicable)</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
                         <input type="submit" value="Continue to checkout" class="btn">
                         </div>
 
@@ -128,26 +124,41 @@ function validateStreet() {
         return (true);
     }
     function validateFlat(){
-        if (isNaN(document.myForm.flatnumber.value)) {
+               if (document.myForm.flatnumber.value[0]=='-') {
             document.myForm.flatnumber.style.borderColor = "red";
-            (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number` + " " + "[Flat number must contain only numbers!]";
+            (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number` + " " + "[Flat number must contain only positive numbers or - symbol in between!]";
             return false;
-        }
-        if (!isNaN(document.myForm.flatnumber.value)) {
-            document.myForm.flatnumber.style.borderColor = "";
-            (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number`;
-        }
-        if (Number(document.myForm.flatnumber.value)<0) {
-            document.myForm.flatnumber.style.borderColor = "red";
-            (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number` + " " + "[Flat number must contain only positive numbers!]";
-            return false;
-        }
-        if (!Number(document.myForm.flatnumber.value) < 0) {
-            document.myForm.flatnumber.style.borderColor = "";
-            (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number`;
-        }
-        return (true);
+                }
+
+        document.myForm.flatnumber.value.split('-').forEach(element => {
+            if (isNaN(element)) {
+                document.myForm.flatnumber.style.borderColor = "red";
+                (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number` + " " + "[Flat number must contain only valid address( positive number or - symbol in between)!]";
+                return false;
+            }
+            if (!isNaN(element)) {
+                document.myForm.flatnumber.style.borderColor = "";
+                (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number`;
+                return (true);
+            }
+        })
+
     }
+    function validateDOD(){
+            var today = new Date().getTime(),
+                idate = document.myForm.datedelivery.value.split("-");
+            console.log(idate[2], idate[1]-1, idate[0])
+            idate = new Date(idate[0], idate[1]-1, idate[2]).getTime();
+            console.log(idate)
+             if((today - idate) > 0){
+   document.myForm.datedelivery.style.borderColor = "red";
+    (document.getElementById("DOD").previousElementSibling.innerHTML) = `<i class="fa fa-calendar"></i>Date of delivery` + " " + "[Date of delivery must be in the future!]";
+             }
+                if((today - idate) < 0){
+                    document.myForm.datedelivery.style.borderColor = "";
+                    (document.getElementById("DOD").previousElementSibling.innerHTML) = `<i class="fa fa-calendar"></i>Date of delivery`;
+                }
+ }
 </script>
 </body>
 
