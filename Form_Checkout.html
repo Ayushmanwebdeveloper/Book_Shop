@@ -36,7 +36,7 @@
                              <div style="display:flex;">
                                 <div style="margin-right:20px;">
                             <label for="fname">Card</label>
-                            <input type="radio" value="Card" id="fname" name="cardname" placeholder="John More Doe">
+                            <input type="radio" value="Card" checked="checked" id="fname" name="cardname" placeholder="John More Doe">
                             </div><div><label for="gname">Cash</label>
                             <input type="radio" value="Cash" id="gname" name="cardname" placeholder="John More Doe">
                             </div></div>
@@ -62,7 +62,7 @@
     let f = false;
     document.getElementById("checkoutbutton").disabled = true;
    function validateName() {
-
+       document.getElementById("checkoutbutton").disabled = true;
         if ((document.myForm.firstname.value.length)<4) {
             document.myForm.firstname.style.borderColor = "red";
             (document.getElementById("fname").previousElementSibling.innerHTML)= `<i class="fa fa-user"></i> Name` +" "+"[Name must contain minimum 4 letters!]";
@@ -89,6 +89,7 @@
     return (true);
     }
 function validateSurname() {
+    document.getElementById("checkoutbutton").disabled = true;
     if ((document.myForm.surname.value.length) < 5) {
         document.myForm.surname.style.borderColor = "red";
         (document.getElementById("sname").previousElementSibling.innerHTML) = `<i class="fa fa-user"></i>Surname` + " " + "[Surname must contain minimum 5 letters!]";
@@ -96,11 +97,11 @@ function validateSurname() {
     }
     if ((document.myForm.surname.value.length) >= 5) {
         document.myForm.surname.style.borderColor = "";
-        (document.getElementById("sname").previousElementSibling.innerHTML) = `<i class="fa fa-user"></i> Name`;
+        (document.getElementById("sname").previousElementSibling.innerHTML) = `<i class="fa fa-user"></i> Surname`;
     }
     if (!/^[a-zA-Z]*$/g.test(document.myForm.surname.value)) {
         document.myForm.surname.style.borderColor = "red";
-        (document.getElementById("sname").previousElementSibling.innerHTML) = `<i class="fa fa-user"></i> Name` + " " + "[Surname must contain letters only!]";
+        (document.getElementById("sname").previousElementSibling.innerHTML) = `<i class="fa fa-user"></i> Surname` + " " + "[Surname must contain letters only!]";
         return false;
     }
     if (document.myForm.surname.value==='') {
@@ -115,6 +116,7 @@ function validateSurname() {
     return (true);
 }
 function validateStreet() {
+    document.getElementById("checkoutbutton").disabled = true;
     if ((document.myForm.street.value.length) < 5) {
         document.myForm.street.style.borderColor = "red";
         (document.getElementById("sadr").previousElementSibling.innerHTML) = `<i class="fa fa-address-card-o"></i>Street Address` + " " + "[Street Address must contain minimum 5 letters!]";
@@ -136,6 +138,7 @@ function validateStreet() {
     return (true);
 }
     function validateHouse() {
+        document.getElementById("checkoutbutton").disabled = true;
         if (isNaN(document.myForm.housenumber.value)) {
             document.myForm.housenumber.style.borderColor = "red";
             (document.getElementById("house").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>House number` + " " + "[House number must contain only numbers!]";
@@ -166,6 +169,7 @@ function validateStreet() {
         return (true);
     }
     function validateFlat(){
+        document.getElementById("checkoutbutton").disabled = true;
                if (document.myForm.flatnumber.value[0]=='-') {
             document.myForm.flatnumber.style.borderColor = "red";
             (document.getElementById("flat").previousElementSibling.innerHTML) = `<i class="fa fa-institution"></i>Flat number` + " " + "[Flat number must contain only positive numbers or - symbol in between!]";
@@ -195,6 +199,7 @@ function validateStreet() {
         }
     }
     function validateDOD(){
+        document.getElementById("checkoutbutton").disabled = true;
             var today = new Date().getTime(),
                 idate = document.myForm.datedelivery.value.split("-");
             console.log(idate[2], idate[1]-1, idate[0])
