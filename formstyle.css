@@ -22,13 +22,13 @@ body {
     flex: 50%;
 }
 
-.col-75 {
+.flex-75 {
     flex: 75%;
 }
 
 .col-25,
 .col-50,
-.col-75 {
+.flex-75 {
     padding: 0 16px;
 }
 
@@ -82,7 +82,7 @@ label {
         border: none;
         width: 100%;
         border-radius: 3px;
-        cursor: pointer;
+        cursor: default;
         font-size: 17px;
 }
 a {

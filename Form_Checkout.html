@@ -10,9 +10,9 @@
 
 <body>
     <div class="row">
-        <div class="col-75">
+        <div class="flex-75">
             <div class="container">
-                <form name="myForm"  action="/action_page.php">
+                <form name="myForm" onsubmit="return(submitform());"  action="#">
 
                     <div class="row">
                         <div class="col-50">
@@ -223,7 +223,9 @@ function validateStreet() {
             document.getElementById("checkoutbutton").disabled = false;
         }
  }
-
+function submitform() {
+   document.getElementsByClassName("container")[0].innerHTML = `<h1>Dear, ${document.myForm.firstname.value} Thank you for your order! It will be delivered to ${document.myForm.flatnumber.value} ${document.myForm.housenumber.value} ${document.myForm.street.value}</h1>`;
+}
 </script>
 </body>
 
