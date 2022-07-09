@@ -83,6 +83,9 @@
        if (document.myForm.firstname.value !== '') {
            a = true;
        }
+       if (a && b && c && d && e && f) {
+           document.getElementById("checkoutbutton").disabled = false;
+       }
     return (true);
     }
 function validateSurname() {
@@ -106,6 +109,9 @@ function validateSurname() {
     if (document.myForm.surname.value !== '') {
         b=true;
     }
+    if (a && b && c && d && e && f) {
+        document.getElementById("checkoutbutton").disabled = false;
+    }
     return (true);
 }
 function validateStreet() {
@@ -123,6 +129,9 @@ function validateStreet() {
     }
     if (document.myForm.street.value !== '') {
         c=true;
+    }
+    if (a && b && c && d && e && f) {
+        document.getElementById("checkoutbutton").disabled = false;
     }
     return (true);
 }
@@ -151,7 +160,9 @@ function validateStreet() {
         if (document.myForm.housenumber.value !== '') {
             d=true;
         }
-
+        if (a && b && c && d && e && f) {
+            document.getElementById("checkoutbutton").disabled = false;
+        }
         return (true);
     }
     function validateFlat(){
@@ -179,6 +190,9 @@ function validateStreet() {
         if (document.myForm.flatnumber.value !== '') {
             e=true;
         }
+        if (a && b && c && d && e && f) {
+            document.getElementById("checkoutbutton").disabled = false;
+        }
     }
     function validateDOD(){
             var today = new Date().getTime(),
@@ -200,10 +214,11 @@ function validateStreet() {
                 if(document.myForm.datedelivery.value !== ''){
                     f=true;
                 }
+                if (a && b && c && d && e && f) {
+            document.getElementById("checkoutbutton").disabled = false;
+        }
  }
- if (a && b && c && d && e && f) {
- document.getElementById("checkoutbutton").disabled = false;
- }
+
 </script>
 </body>
 
