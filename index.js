@@ -49,6 +49,14 @@ let div2 = document.createElement("div");
 div2.className = "div2";
 div2.id ="grid";
 body.appendChild(div2);
+let modal = document.createElement("div");
+modal.className = "modal";
+modal.id="modal";
+modal.innerHTML = `<div class="modal-content">
+    <span id="cross" class="cross">&times;</span>
+    <p></p>
+  </div>`
+body.appendChild(modal);
 let arr=[{
     "author": "Douglas Crockford",
     "imageLink": "./assets/good.jpg",
@@ -121,6 +129,7 @@ let arr=[{
     }
 ];
 let count=0;
+let count1= 0;
 arr.forEach(e => {
     let card = document.createElement("div");
     card.className = "card";
@@ -129,6 +138,7 @@ arr.forEach(e => {
         <h4 class="card__title">${e.title}</h4>
         <p class="card__text">${e.author}</p>
         <p class="card__price">Price:${'$'+e.price}</p>
+        <button class="card__btn showmore" data-id=${count1++}>Show More</button>
         <button class="card__btn add-to-cart" data-id=${count++}>Add to Cart</button>
       </div>`
     div2.appendChild(card);
@@ -271,3 +281,32 @@ cartContent.querySelector("tbody").addEventListener("click", function (e) {
     displayCartTotal();
   }
 });
+function viewModal(clickedBtn1) {
+  const modal = document.querySelector("#modal");
+  const productId = clickedBtn1.getAttribute("data-id");
+  const prodDes = arr[productId].description;
+  modal.classList.add("open");
+  modal.innerHTML = `<div class="modal-content">
+    <span id="cross" class="cross">&times;</span>
+    <p>${prodDes}</p>
+  </div>`
+  modal.style.display = "block";
+  const cross = document.querySelector("#cross");
+  cross.onclick = function () {
+    modal.style.display = "none";
+  }
+}
+productsContainer.addEventListener("click", function (e) {
+  if (e.target.classList.contains("showmore")) {
+    e.preventDefault();
+    const clickedBtn1 = e.target;
+    viewModal(clickedBtn1);
+  }
+});
+
+window.onclick = function (event) {
+  const modal = document.querySelector("#modal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
