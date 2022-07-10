@@ -9,6 +9,7 @@ body{
     background-repeat: repeat;
 font-family: 'Rubik Moonrocks', cursive;
 text-align: center;
+text-decoration: none;
 }
 .h1{
 color: #000000;
@@ -32,7 +33,6 @@ font-size:60px;
     font-size: 24px;
     cursor: pointer;
     text-align: center;
-
     text-decoration: none;
     outline: none;
     color: #fff;
