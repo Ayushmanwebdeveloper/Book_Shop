@@ -151,7 +151,8 @@ function validateDOD() {
     console.log(idate)
     if ((today - idate) > 0) {
         document.myForm.datedelivery.style.borderColor = "red";
-        (document.getElementById("DOD").previousElementSibling.innerHTML) = `<i class="fa fa-calendar"></i>Date of delivery` + " " + "[Date of delivery must be in the future!]";
+ (document.getElementById("DOD").previousElementSibling.innerHTML) = `<i class="fa fa-calendar"></i>Date of delivery` + " " + "[Date of delivery must be in the future!]";
+ return false;
     }
     if ((today - idate) < 0) {
         document.myForm.datedelivery.style.borderColor = "";
