@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout</title>
+    <script src="https://kit.fontawesome.com/e4353a2c7e.js" crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="formstyle.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="flex-75">
+            <div class="container">
+                <form name="myForm" onsubmit="return(submitform());"  action="#">
+
+                    <div class="row">
+                        <div class="col-50">
+                            <h3>Shipping Address</h3>
+                            <label  for="fname"><i class="fa fa-user"></i> Name</label>
+                            <input onchange = "return(validateName());"  type="text" id="fname" name="firstname" placeholder="Taylor" required>
+                            <label for="sname"><i class="fa fa-user"></i>Surname</label>
+                            <input onchange = "return(validateSurname());" type="text" id="sname" name="surname" placeholder="Swift" required>
+                            <label for="sadr"><i class="fa fa-address-card-o"></i>Street Address</label>
+                            <input onchange = "return(validateStreet());" type="text" id="sadr" name="street" placeholder="542 W. 15th Street" required>
+                            <label for="house"><i class="fa fa-institution"></i>House number</label>
+                            <input onchange = "return(validateHouse());" type="text" id="house" name="housenumber" placeholder="530" required>
+                            <label for="flat"><i class="fa fa-institution"></i>Flat Number</label>
+                            <input onchange = "return(validateFlat());" type="text" id="flat" name="flatnumber" placeholder="4-1230" required>
+                            <label for="DOD"><i class="fa fa-calendar"></i>Date Of Delivery</label>
+                            <input onchange = "return(validateDOD());" type="date" id="DOD" name="datedelivery" required>
+                        </div>
+
+                        <div class="col-50">
+                            <h3>Payment Options-</h3>
+                             <div style="display:flex;">
+                                <div style="margin-right:20px;">
+                            <label for="fname">Card</label>
+                            <input type="radio" value="Card" checked="checked" id="fname" name="cardname" placeholder="John More Doe">
+                            </div><div><label for="gname">Cash</label>
+                            <input type="radio" value="Cash" id="gname" name="cardname" placeholder="John More Doe">
+                            </div></div>
+                        <input type="submit" value="Continue to checkout" id="checkoutbutton" class="btn">
+                        </div>
+
+                    </div>
+                    <label>
+                        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                    </label>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+<script src="form.js"></script>
+</body>
+
+</html>
